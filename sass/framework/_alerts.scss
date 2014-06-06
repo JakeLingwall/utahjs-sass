@@ -1,0 +1,71 @@
+/*if and elses are handy in mixins and alerts*/
+@mixin alert($color){
+  /*use the @if for if/else statments*/
+  @if (lightness($color) > 50){
+    background-color: $color;
+    color: white;
+    padding: 8px 20px;
+    margin: 5px 0;
+  } @else{
+    background-color: $color;
+    color: black;
+    padding: 8px 20px;
+    margin: 5px 0;
+  }
+}
+
+.alert{
+  @include alert($primary);
+  
+  span{
+    float: right;
+    cursor: pointer;
+  }
+  /*Here we use the if function, the @if is the if directive*/
+  /*simple sytnax. if true, first variable, if false second variable*/
+  &.warning{
+    @include alert(if(variable_exists(colorWarning), $colorWarning, orange));
+  }
+  &.primary{
+    @include alert($primary);
+  }
+  &.error{
+    @include alert(if(variable_exists(errorColor), $errorColor, red));
+  }
+  &.success{
+    @include alert(lighten(green, 15));
+  }
+}
+
+/*same logic as above reused for a new mixin. */
+/*this feels pretty functiony...hmmm*/
+@mixin colorer($color){
+  @if (lightness($color) > 50){
+    background-color: $color;
+    color: white;
+  } @else{
+    background-color: $color;
+    color: black;
+  }
+}
+/*seperate the spacing and other logic from the reusable color
+is a step in the right direction. 
+*/
+@mixin badge{
+  padding: 0px 2px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.badge{
+  @include colorer(red);
+  @include badge;
+
+  &.primary{
+    @include colorer($primary);
+  }
+}
+
+.alert-section{
+  margin: 40px 0;
+}

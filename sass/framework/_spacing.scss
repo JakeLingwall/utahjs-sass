@@ -1,0 +1,31 @@
+/*maps now available in 3.3*/
+$sizes: (xxsmall: 5px, xsmall: 10px, small: 15px, medium: 20px, large: 25px, xlarge: 30px, xxlarge: 35px);
+/*traditional lists*/
+$directions: (top, left, right, bottom, horizontal, vertical, all);
+$types: (margin, padding);
+
+/*the @each is super handy. You can use @for or @while as well*/
+@each $type in $types{
+  @each $direction in $directions{
+    @each $key, $value in $sizes{
+      /*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+      @if($direction == all){
+          .#{$type}-#{$key}{
+            #{$type}: $value;
+          }
+        } @else{
+        .#{$type}-#{$direction}-#{$key}{
+          @if($direction == horizontal){
+            #{$type}-left: $value;
+            #{$type}-right: $value;
+          } @else if($direction == vertical){
+              #{$type}-top: $value;
+              #{$type}-bottom: $value;
+          } @else{
+              #{$type}-#{$direction}: $value;
+          }
+        }
+      }
+    }
+  }
+}

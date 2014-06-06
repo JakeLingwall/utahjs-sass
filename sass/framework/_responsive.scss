@@ -1,0 +1,48 @@
+$phoneWidth: 320px;
+$standardWidth: 800px;
+$retinaWidth: 1024px;
+
+@mixin respond-to($media) {
+  /*@debug $media;*/
+  @if $media == $phoneWidth {
+    @media only screen and (max-width: $phoneWidth) { @content; }
+  }
+  @else if $media == $standardWidth {
+    @media only screen and (min-width: $phoneWidth + 1) and (max-width: $retinaWidth - 1) { @content; }
+  }
+  @else if $media == $retinaWidth {
+    @media only screen and (min-width: $retinaWidth) { @content; }
+  }
+}
+
+.content-div {
+
+  width: 100%;
+  background-color: $primary;
+  height: 50px;
+  margin: auto;
+  @include respond-to($phoneWidth) { 
+    width: 100%;
+    margin-top: 5px;
+  }
+  @include respond-to($standardWidth) { 
+    max-width: 100%;
+    width: 500px; 
+    background-color: $secondary;
+    margin-top: 10px;
+    /*seemed like a good time to throw this out there. =)*/
+    /*we could exclude the media by calling @at-root (without: media)*/
+    @at-root body{
+      background-color: $primary !important;
+    }
+  }
+  @include respond-to($retinaWidth) {
+    max-width:800px;
+    background-color: $errorColor;
+    margin-top: 20px; 
+  }
+}
+
+.responsive-section{
+  margin-top: 150px;
+}

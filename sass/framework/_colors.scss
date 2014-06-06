@@ -1,0 +1,84 @@
+/*defining colors to be used throughout your scss is awesome.*/
+/*when you have a full guide built, anyone can change the look and feel of the app right here*/
+$primary: #ccc;
+/*the darken function is super handy to darken colors programmatically*/
+$primary-2: darken($primary, 10);
+$primary-3: darken($primary, 20);
+$primary-4: darken($primary, 30);
+$primary-5: darken($primary, 40);
+
+/*ditto for the lighten function. Use them.*/
+$secondary: #00dd00;
+$secondary-2: lighten($secondary, 20);
+$secondary-3: lighten($secondary-2, 20);
+
+$third: darken(red, 20);
+
+/*hue saturation lightness alpha is a good way to make colors*/
+$fourth: hsla(100, 30, 20, 1);
+
+/*rgba is another awesome way to make colors*/
+$fifth: rgba(244, 142, 14, .5);
+
+/*For the sole purpose of making an IE joke*/
+$sixth: ie_hex_str($third);
+
+/*and you combine all these and use functions to extract some*/
+$seventh: hsla(hue($fifth), 50, 50, .90);
+$eigth: lighten(rgba(40, 50, 53, .25), 10);
+
+$errorColor: red;
+$linkColor: blue;
+
+/*classes built to show those colors*/
+.primary-color{
+  background-color: $primary;
+}
+.primary-2-color{
+  background-color: $primary-2
+}
+.primary-3-color{
+  background-color: $primary-3
+}
+.primary-4-color{
+  background-color: $primary-4
+}
+.primary-5-color{
+  background-color: $primary-5
+}
+.secondary-color{
+  background-color: $secondary;
+}
+.secondary-2-color{
+  background-color: $secondary-2;
+}
+.secondary-3-color{
+  background-color: $secondary-3;
+}
+.third-color{
+  background-color: $third;
+}
+.fourth-color{
+  background-color: $fourth;
+}
+.fifth-color{
+  background-color: $fifth;
+}
+.sixth-color{
+  background-color: $sixth;
+}
+.seventh-color{
+  background-color: $seventh;
+}
+.eigth-color{
+  background-color: $eigth;
+}
+.box{
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  display: inline-block;
+}
+.color-section{
+  margin-top: 40px;
+}

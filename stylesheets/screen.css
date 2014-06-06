@@ -1,0 +1,1112 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*framework styles!*/
+/*some common compass stuff that we can take advantage of*/
+/*don't want to focus on compass too much. 
+But it gives you some mixins that are quite handy out the gate.
+You can see them here: 
+http://compass-style.org/reference/compass/css3/*/
+/* line 5, ../sass/framework/_compass-stuff.scss */
+.half-opacity {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+/* line 9, ../sass/framework/_compass-stuff.scss */
+.column-layour {
+  -moz-columns: 3;
+  -webkit-columns: 3;
+  columns: 3;
+}
+
+/* line 13, ../sass/framework/_compass-stuff.scss */
+.border-radius {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/*the best one =)*/
+/* line 18, ../sass/framework/_compass-stuff.scss */
+.transition {
+  -moz-transition: all, 30s;
+  -o-transition: all, 30s;
+  -webkit-transition: all, 30s;
+  transition: all, 30s;
+}
+
+/*Some sweet nesting features. SASS FOR THE WIN!*/
+/* line 2, ../sass/framework/_layout.scss */
+html {
+  background-color: #ccc;
+  font-family: helvetica;
+}
+/* line 6, ../sass/framework/_layout.scss */
+html body {
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+/* line 11, ../sass/framework/_layout.scss */
+html body h1 {
+  text-align: center;
+}
+
+/*The & operator is the best friend you always wanted.*/
+/* line 18, ../sass/framework/_layout.scss */
+.page {
+  /*not really a place you'd want to put this. But trailing & is not well known*/
+}
+/* line 20, ../sass/framework/_layout.scss */
+.page.documentation-page {
+  border: 1px dotted #ccc;
+  border-radius: 5px;
+}
+/* line 25, ../sass/framework/_layout.scss */
+.page-header {
+  text-transform: uppercase;
+}
+/* line 28, ../sass/framework/_layout.scss */
+.page-header:hover {
+  color: green;
+  cursor: pointer;
+}
+/* line 35, ../sass/framework/_layout.scss */
+.body-wrapper .page {
+  background-color: #aaa;
+}
+
+/*defining colors to be used throughout your scss is awesome.*/
+/*when you have a full guide built, anyone can change the look and feel of the app right here*/
+/*the darken function is super handy to darken colors programmatically*/
+/*ditto for the lighten function. Use them.*/
+/*hue saturation lightness alpha is a good way to make colors*/
+/*rgba is another awesome way to make colors*/
+/*For the sole purpose of making an IE joke*/
+/*and you combine all these and use functions to extract some*/
+/*classes built to show those colors*/
+/* line 34, ../sass/framework/_colors.scss */
+.primary-color {
+  background-color: #cccccc;
+}
+
+/* line 37, ../sass/framework/_colors.scss */
+.primary-2-color {
+  background-color: #b3b3b3;
+}
+
+/* line 40, ../sass/framework/_colors.scss */
+.primary-3-color {
+  background-color: #999999;
+}
+
+/* line 43, ../sass/framework/_colors.scss */
+.primary-4-color {
+  background-color: gray;
+}
+
+/* line 46, ../sass/framework/_colors.scss */
+.primary-5-color {
+  background-color: #666666;
+}
+
+/* line 49, ../sass/framework/_colors.scss */
+.secondary-color {
+  background-color: #00dd00;
+}
+
+/* line 52, ../sass/framework/_colors.scss */
+.secondary-2-color {
+  background-color: #44ff44;
+}
+
+/* line 55, ../sass/framework/_colors.scss */
+.secondary-3-color {
+  background-color: #aaffaa;
+}
+
+/* line 58, ../sass/framework/_colors.scss */
+.third-color {
+  background-color: #990000;
+}
+
+/* line 61, ../sass/framework/_colors.scss */
+.fourth-color {
+  background-color: #2e4224;
+}
+
+/* line 64, ../sass/framework/_colors.scss */
+.fifth-color {
+  background-color: rgba(244, 142, 14, 0.5);
+}
+
+/* line 67, ../sass/framework/_colors.scss */
+.sixth-color {
+  background-color: #FF990000;
+}
+
+/* line 70, ../sass/framework/_colors.scss */
+.seventh-color {
+  background-color: rgba(191, 135, 64, 0.9);
+}
+
+/* line 73, ../sass/framework/_colors.scss */
+.eigth-color {
+  background-color: rgba(62, 77, 82, 0.25);
+}
+
+/* line 76, ../sass/framework/_colors.scss */
+.box {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  display: inline-block;
+}
+
+/* line 82, ../sass/framework/_colors.scss */
+.color-section {
+  margin-top: 40px;
+}
+
+/*typically you extend classes. But using % in front of a class name 
+is called a placeholder
+this means that sass won't compile it unless it is extended elsewhere.
+*/
+/* line 4, ../sass/framework/_buttons.scss */
+.button {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 3px;
+  text-align: center;
+  min-width: 40px;
+}
+/* line 11, ../sass/framework/_buttons.scss */
+.button:hover {
+  cursor: pointer;
+}
+
+/*here we extend that button placeholder from before. */
+/* line 17, ../sass/framework/_buttons.scss */
+.button {
+  background-color: #cccccc;
+  font-size: 14px;
+  /*now we do a differnet look while still 
+  taking advantage of that original extend*/
+}
+/* line 22, ../sass/framework/_buttons.scss */
+.button.large {
+  font-size: 16px;
+  padding: 8px 14px;
+}
+/* line 27, ../sass/framework/_buttons.scss */
+.button.small {
+  font-size: 11px;
+}
+/* line 31, ../sass/framework/_buttons.scss */
+.button.primary {
+  background-color: #cccccc;
+}
+/* line 34, ../sass/framework/_buttons.scss */
+.button.secondary {
+  background-color: #00dd00;
+}
+/* line 37, ../sass/framework/_buttons.scss */
+.button.cancel {
+  background-color: red;
+}
+/* line 43, ../sass/framework/_buttons.scss */
+.button.flat {
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  color: #999999;
+  /*
+      we have to overload the hover experience here.
+      However, this is a poor approach, because we probably want to have a way
+      to have this override no matter what colors they use.
+      We should use a mixin here instead. */
+}
+/* line 52, ../sass/framework/_buttons.scss */
+.button.flat:hover {
+  background-color: #cccccc;
+  color: white;
+}
+
+/* line 59, ../sass/framework/_buttons.scss */
+.buttons-section {
+  margin: 40px 0;
+}
+
+/*mixins with no variables are usually not the best way to go.
+Most of the times you can just use a variable just as easily
+*/
+/*here we consume the mixins to build some classes.*/
+/* line 21, ../sass/framework/_typographies.scss */
+.font-size-small {
+  font-size: 10px;
+}
+
+/* line 25, ../sass/framework/_typographies.scss */
+.font-size-default {
+  font-size: 14px;
+}
+
+/* line 29, ../sass/framework/_typographies.scss */
+.font-size-large {
+  font-size: 16px;
+}
+
+/* line 33, ../sass/framework/_typographies.scss */
+.font-size-largest {
+  font-size: 24px;
+}
+
+/* line 37, ../sass/framework/_typographies.scss */
+.warning-text {
+  font-size: 24px;
+  color: red;
+}
+
+/*you can have multiple levels of dependencies.*/
+/* line 47, ../sass/framework/_typographies.scss */
+.primary-text {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/*here we pass some variables to a mixin to make it more dynamic*/
+/* line 60, ../sass/framework/_typographies.scss */
+.section-header {
+  color: #007700;
+  font-weight: bold;
+  font-size: 42px;
+}
+
+/*here is a mixin that stores some common attributes together*/
+/* line 71, ../sass/framework/_typographies.scss */
+.single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*finally we take advantage of multiple mixins to build a single class. 
+It's consistent and easy!
+*/
+/* line 78, ../sass/framework/_typographies.scss */
+.card-view {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  font-size: 14px;
+  color: #cccccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*Quick difference between include and extends*/
+/* line 88, ../sass/framework/_typographies.scss */
+.base-class, .extended {
+  width: 10px;
+  height: 10px;
+  background-color: purple;
+}
+
+/* line 100, ../sass/framework/_typographies.scss */
+.extended {
+  color: white;
+}
+
+/* line 105, ../sass/framework/_typographies.scss */
+.included {
+  width: 10px;
+  height: 10px;
+  background-color: purple;
+  color: white;
+}
+
+/*
+can't see a diference in html. 
+Difference is in the compiled css. 
+include 'includes' those selectors in the class
+extend adds the current class to the extended class definition*/
+/* line 122, ../sass/framework/_typographies.scss */
+.font-section {
+  margin: 40px 0;
+}
+/* line 125, ../sass/framework/_typographies.scss */
+.font-section div {
+  margin: 10px 0;
+}
+
+/*if and elses are handy in mixins and alerts*/
+/* line 17, ../sass/framework/_alerts.scss */
+.alert {
+  /*use the @if for if/else statments*/
+  background-color: #cccccc;
+  color: white;
+  padding: 8px 20px;
+  margin: 5px 0;
+  /*Here we use the if function, the @if is the if directive*/
+  /*simple sytnax. if true, first variable, if false second variable*/
+}
+/* line 20, ../sass/framework/_alerts.scss */
+.alert span {
+  float: right;
+  cursor: pointer;
+}
+/* line 26, ../sass/framework/_alerts.scss */
+.alert.warning {
+  /*use the @if for if/else statments*/
+  background-color: orange;
+  color: black;
+  padding: 8px 20px;
+  margin: 5px 0;
+}
+/* line 29, ../sass/framework/_alerts.scss */
+.alert.primary {
+  /*use the @if for if/else statments*/
+  background-color: #cccccc;
+  color: white;
+  padding: 8px 20px;
+  margin: 5px 0;
+}
+/* line 32, ../sass/framework/_alerts.scss */
+.alert.error {
+  /*use the @if for if/else statments*/
+  background-color: red;
+  color: black;
+  padding: 8px 20px;
+  margin: 5px 0;
+}
+/* line 35, ../sass/framework/_alerts.scss */
+.alert.success {
+  /*use the @if for if/else statments*/
+  background-color: #00cc00;
+  color: black;
+  padding: 8px 20px;
+  margin: 5px 0;
+}
+
+/*same logic as above reused for a new mixin. */
+/*this feels pretty functiony...hmmm*/
+/*seperate the spacing and other logic from the reusable color
+is a step in the right direction. 
+*/
+/* line 60, ../sass/framework/_alerts.scss */
+.badge {
+  background-color: red;
+  color: black;
+  padding: 0px 2px;
+  border-radius: 3px;
+  display: inline-block;
+}
+/* line 64, ../sass/framework/_alerts.scss */
+.badge.primary {
+  background-color: #cccccc;
+  color: white;
+}
+
+/* line 69, ../sass/framework/_alerts.scss */
+.alert-section {
+  margin: 40px 0;
+}
+
+/*maps now available in 3.3*/
+/*traditional lists*/
+/*the @each is super handy. You can use @for or @while as well*/
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-xxsmall {
+  margin-top: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-xsmall {
+  margin-top: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-small {
+  margin-top: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-medium {
+  margin-top: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-large {
+  margin-top: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-xlarge {
+  margin-top: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-top-xxlarge {
+  margin-top: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-xxsmall {
+  margin-left: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-xsmall {
+  margin-left: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-small {
+  margin-left: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-medium {
+  margin-left: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-large {
+  margin-left: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-xlarge {
+  margin-left: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-left-xxlarge {
+  margin-left: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-xxsmall {
+  margin-right: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-xsmall {
+  margin-right: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-small {
+  margin-right: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-medium {
+  margin-right: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-large {
+  margin-right: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-xlarge {
+  margin-right: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-right-xxlarge {
+  margin-right: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-xxsmall {
+  margin-bottom: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-xsmall {
+  margin-bottom: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-small {
+  margin-bottom: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-medium {
+  margin-bottom: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-large {
+  margin-bottom: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-xlarge {
+  margin-bottom: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-bottom-xxlarge {
+  margin-bottom: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-xxsmall {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-xsmall {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-small {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-medium {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-large {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-xlarge {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-horizontal-xxlarge {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-xxsmall {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-xsmall {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-small {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-medium {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-large {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-xlarge {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.margin-vertical-xxlarge {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-xxsmall {
+  margin: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-xsmall {
+  margin: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-small {
+  margin: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-medium {
+  margin: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-large {
+  margin: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-xlarge {
+  margin: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.margin-xxlarge {
+  margin: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-xxsmall {
+  padding-top: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-xsmall {
+  padding-top: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-small {
+  padding-top: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-medium {
+  padding-top: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-large {
+  padding-top: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-xlarge {
+  padding-top: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-top-xxlarge {
+  padding-top: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-xxsmall {
+  padding-left: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-xsmall {
+  padding-left: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-small {
+  padding-left: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-medium {
+  padding-left: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-large {
+  padding-left: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-xlarge {
+  padding-left: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-left-xxlarge {
+  padding-left: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-xxsmall {
+  padding-right: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-xsmall {
+  padding-right: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-small {
+  padding-right: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-medium {
+  padding-right: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-large {
+  padding-right: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-xlarge {
+  padding-right: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-right-xxlarge {
+  padding-right: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-xxsmall {
+  padding-bottom: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-xsmall {
+  padding-bottom: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-small {
+  padding-bottom: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-medium {
+  padding-bottom: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-large {
+  padding-bottom: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-xlarge {
+  padding-bottom: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-bottom-xxlarge {
+  padding-bottom: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-xxsmall {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-xsmall {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-small {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-medium {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-large {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-xlarge {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-horizontal-xxlarge {
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-xxsmall {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-xsmall {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-small {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-medium {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-large {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-xlarge {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 17, ../sass/framework/_spacing.scss */
+.padding-vertical-xxlarge {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-xxsmall {
+  padding: 5px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-xsmall {
+  padding: 10px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-small {
+  padding: 15px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-medium {
+  padding: 20px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-large {
+  padding: 25px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-xlarge {
+  padding: 30px;
+}
+
+/*No interpolation in mixin names blows. Have to write them all out, or use maps or something.*/
+/* line 13, ../sass/framework/_spacing.scss */
+.padding-xxlarge {
+  padding: 35px;
+}
+
+/*some fancy css for building a triangle put into a mixin*/
+/*we can define our own functions using this syntax*/
+/*the main difference here instead of a mixin is that this returns a value*/
+/* line 32, ../sass/framework/_popovers.scss */
+.popover {
+  position: absolute;
+  -moz-box-shadow: #cccccc 5px 5px 3px;
+  -webkit-box-shadow: #cccccc 5px 5px 3px;
+  box-shadow: #cccccc 5px 5px 3px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 200px;
+  margin-top: 10px;
+}
+/* line 40, ../sass/framework/_popovers.scss */
+.popover .arrow {
+  /*some more sweet interpolation!*/
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #cccccc;
+  position: absolute;
+  /*we call our function here like so*/
+  top: -10px;
+}
+
+/* line 48, ../sass/framework/_popovers.scss */
+.popover-section {
+  margin: 50px 0;
+}
+
+/* line 18, ../sass/framework/_responsive.scss */
+.content-div {
+  width: 100%;
+  background-color: #cccccc;
+  height: 50px;
+  margin: auto;
+  /*@debug $media;*/
+  /*@debug $media;*/
+  /*@debug $media;*/
+}
+@media only screen and (max-width: 320px) {
+  /* line 18, ../sass/framework/_responsive.scss */
+  .content-div {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 1023px) {
+  /* line 18, ../sass/framework/_responsive.scss */
+  .content-div {
+    max-width: 100%;
+    width: 500px;
+    background-color: #00dd00;
+    margin-top: 10px;
+    /*seemed like a good time to throw this out there. =)*/
+    /*we could exclude the media by calling @at-root (without: media)*/
+  }
+  /* line 35, ../sass/framework/_responsive.scss */
+  body {
+    background-color: #cccccc !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  /* line 18, ../sass/framework/_responsive.scss */
+  .content-div {
+    max-width: 800px;
+    background-color: red;
+    margin-top: 20px;
+  }
+}
+
+/* line 46, ../sass/framework/_responsive.scss */
+.responsive-section {
+  margin-top: 150px;
+}
+
+/*Feature Styles*/

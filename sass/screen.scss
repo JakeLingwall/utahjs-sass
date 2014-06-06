@@ -1,0 +1,26 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+/*framework styles!*/
+
+/*some common compass stuff that we can take advantage of*/
+@import "compass/css3";
+@import "compass/css3/box-sizing";
+@import "compass/css3/user-interface";
+@import "compass/utilities";
+@import "./framework/_compass-stuff.scss";
+
+
+@import "./framework/_layout.scss";
+@import "./framework/_colors.scss";
+@import "./framework/_buttons.scss";
+@import "./framework/_typographies.scss";
+@import "./framework/_alerts.scss";
+@import "./framework/_spacing.scss";
+@import "./framework/_popovers.scss";
+@import "./framework/_responsive.scss";
+
+
+/*Feature Styles*/

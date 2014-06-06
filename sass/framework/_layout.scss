@@ -1,0 +1,38 @@
+/*Some sweet nesting features. SASS FOR THE WIN!*/
+html{
+  background-color: #ccc;
+  font-family: helvetica;
+
+  body{
+    padding: 30px;
+    background-color: white;
+    border-radius: 5px;
+
+    h1{
+      text-align: center;
+    }
+  }
+}
+
+/*The & operator is the best friend you always wanted.*/
+.page{
+
+  &.documentation-page{
+    border: 1px dotted #ccc;
+    border-radius: 5px;
+  }
+
+  &-header{
+    text-transform: uppercase;
+
+    &:hover{
+      color: green;
+      cursor: pointer;
+    }
+  }
+
+/*not really a place you'd want to put this. But trailing & is not well known*/
+  .body-wrapper &{
+    background-color: #aaa;
+  }
+}

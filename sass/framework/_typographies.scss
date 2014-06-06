@@ -1,0 +1,128 @@
+/*mixins with no variables are usually not the best way to go.
+Most of the times you can just use a variable just as easily
+*/
+@mixin font-size-small{
+  font-size: 10px;
+}
+
+@mixin font-size-default{
+  font-size: 14px;
+}
+
+@mixin font-size-large{
+  font-size: 16px;
+}
+
+@mixin font-size-largest{
+  font-size: 24px;
+}
+
+/*here we consume the mixins to build some classes.*/
+.font-size-small{
+  @include font-size-small;
+}
+
+.font-size-default{
+  @include font-size-default;
+}
+
+.font-size-large{
+  @include font-size-large;
+}
+
+.font-size-largest{
+  @include font-size-largest;
+}
+
+.warning-text{
+  @include font-size-largest;
+  color: $errorColor;
+}
+@mixin primary-text{
+  @include font-size-default;
+  color: $primary;
+}
+
+/*you can have multiple levels of dependencies.*/
+.primary-text{
+  @include primary-text;
+}
+
+/*here we pass some variables to a mixin to make it more dynamic*/
+@mixin font-builder($color, $weight, $size){
+  color: darken($color, 20);
+  font-weight: $weight;
+  font-size: $size + 10px;
+}
+
+$headingTextSize: 32px;
+
+.section-header{
+  @include font-builder($secondary, bold, $headingTextSize);
+}
+
+/*here is a mixin that stores some common attributes together*/
+@mixin single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.single-line{
+  @include single-line;
+}
+
+/*finally we take advantage of multiple mixins to build a single class. 
+It's consistent and easy!
+*/
+.card-view{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  @include primary-text;
+  @include single-line;
+}
+
+
+/*Quick difference between include and extends*/
+.base-class{
+  width: 10px;
+  height: 10px;
+  background-color: purple;
+}
+
+@mixin base-class{
+  width: 10px;
+  height: 10px;
+  background-color: purple;
+}
+
+.extended{
+  @extend .base-class;
+  color: white;
+}
+
+.included{
+  @include base-class;
+  color: white;
+}
+/*
+can't see a diference in html. 
+Difference is in the compiled css. 
+include 'includes' those selectors in the class
+extend adds the current class to the extended class definition*/
+
+
+
+
+
+
+
+
+.font-section{
+  margin: 40px 0;
+
+  div{
+    margin: 10px 0;
+  }
+}

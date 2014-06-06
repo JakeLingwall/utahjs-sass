@@ -1,0 +1,50 @@
+/*some fancy css for building a triangle put into a mixin*/
+@mixin triangle($direction, $size, $color) {
+  $mainSide: 'bottom';
+  $sideA: 'left';
+  $sideB: 'right';
+
+  @if $direction == 'right' {
+    $mainSide: 'left';
+    $sideA: 'top';
+    $sideB: 'bottom';
+  } @else if $direction == 'down' {
+    $mainSide: 'top';
+    $sideA: 'left';
+    $sideB: 'right';
+  } @else if $direction == 'left' {
+    $mainSide: 'right';
+    $sideA: 'top';
+    $sideB: 'bottom';
+  }
+  /*some more sweet interpolation!*/
+  border-#{$sideA}: $size solid transparent;
+  border-#{$sideB}: $size solid transparent;
+  border-#{$mainSide}: $size solid $color;
+}
+
+/*we can define our own functions using this syntax*/
+/*the main difference here instead of a mixin is that this returns a value*/
+@function arrow-placement($size, $padding){
+  @return -($padding - $size) * 2;
+}
+
+.popover{
+  position: absolute;
+  @include box-shadow(#ccc 5px 5px 3px);
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 200px;
+  margin-top: 10px;
+
+  .arrow{
+    @include triangle('up', 10px, #ccc);
+    position: absolute;
+    /*we call our function here like so*/
+    top: arrow-placement(10px, 15px);
+  }
+}
+
+.popover-section{
+  margin: 50px 0;
+}

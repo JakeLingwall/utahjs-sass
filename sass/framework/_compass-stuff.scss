@@ -1,0 +1,22 @@
+/*don't want to focus on compass too much. 
+But it gives you some mixins that are quite handy out the gate.
+You can see them here: 
+http://compass-style.org/reference/compass/css3/*/
+.half-opacity{
+  @include opacity(.5);
+}
+
+.column-layour{
+  @include columns(3);
+}
+
+.border-radius{
+  @include border-radius(3px);
+}
+
+/*the best one =)*/
+.transition{
+  @include transition(all, 30s)
+}
+
+

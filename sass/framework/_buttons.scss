@@ -1,0 +1,61 @@
+/*typically you extend classes. But using % in front of a class name 
+is called a placeholder
+this means that sass won't compile it unless it is extended elsewhere.
+*/%button{
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 3px;
+  text-align: center;
+  min-width: 40px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+/*here we extend that button placeholder from before. */
+.button{
+  @extend %button;
+  background-color: $primary;
+  font-size: 14px;
+
+  &.large{
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  &.small{
+    font-size: 11px;
+  }
+
+  &.primary{
+    background-color: $primary;
+  }
+  &.secondary{
+    background-color: $secondary;
+  }
+  &.cancel{
+    background-color: $errorColor;
+  }
+
+  /*now we do a differnet look while still 
+  taking advantage of that original extend*/
+  &.flat{
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary-3;
+/*
+    we have to overload the hover experience here.
+    However, this is a poor approach, because we probably want to have a way
+    to have this override no matter what colors they use.
+    We should use a mixin here instead. */
+    &:hover{
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
+
+.buttons-section{
+  margin: 40px 0;
+}
